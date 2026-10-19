@@ -1,3 +1,5 @@
+<img src=".github/banner.jpg" alt="gpu.nz examples — ComfyUI, FLUX, Ollama, vLLM and Jupyter on rented GPUs" width="100%">
+
 # gpu.nz examples — run ComfyUI, FLUX, Ollama, vLLM and Jupyter on rented GPUs
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
