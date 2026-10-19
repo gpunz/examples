@@ -1,0 +1,4 @@
+# Optional: only for launch_vllm_openai.py --ask and the notebooks
+openai>=1.0
+matplotlib>=3.7
+jupyterlab>=4.0

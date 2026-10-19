@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Byte-compile all Python files
+        run: find . -name '*.py' -not -path './.git/*' -print0 | xargs -0 python -m py_compile
+      - name: Validate notebooks are JSON
+        run: |
+          for f in notebooks/*.ipynb; do
+            python -m json.tool "$f" > /dev/null
+          done
+      - name: Check shell scripts parse
+        run: |
+          for f in cli/*.sh; do
+            bash -n "$f"
+          done

@@ -1,0 +1,2 @@
+# Core dependency of python/gpunz_client.py and every script in python/
+requests>=2.28,<3
